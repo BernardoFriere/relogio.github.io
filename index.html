@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <link rel="icon" href="Logo.png">
-  <meta charset="UTF-8">
-  <title>Relógio Digital</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Relógio Animado</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #1f1c2c, #928dab);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
       height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', monospace;
     }
 
     .relogio {
-      background-color: rgba(0, 0, 0, 0.3);
-      padding: 30px 60px;
+      color: #00fff0;
+      font-size: 5em;
       text-shadow: 0 0 20px #00fff0, 0 0 40px #00fff0, 0 0 60px #00fff0;
       animation: pulse 2s infinite;
+      border: 3px solid rgba(0, 255, 240, 0.4);
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      font-size: 60px;
-      letter-spacing: 3px;
+      padding: 30px 50px;
+      box-shadow: 0 0 30px #00fff0;
+      background-color: rgba(0, 0, 0, 0.4);
     }
 
-     @keyframes pulse {
+    @keyframes pulse {
       0% {
         text-shadow: 0 0 10px #00fff0;
         transform: scale(1);
@@ -50,14 +48,14 @@
   <script>
     function atualizarRelogio() {
       const agora = new Date();
-      const horas = agora.getHours().toString().padStart(2, '0');
-      const minutos = agora.getMinutes().toString().padStart(2, '0');
-      const segundos = agora.getSeconds().toString().padStart(2, '0');
+      let horas = agora.getHours().toString().padStart(2, '0');
+      let minutos = agora.getMinutes().toString().padStart(2, '0');
+      let segundos = agora.getSeconds().toString().padStart(2, '0');
       document.getElementById('relogio').textContent = `${horas}:${minutos}:${segundos}`;
     }
 
     setInterval(atualizarRelogio, 1000);
-    atualizarRelogio();
+    atualizarRelogio(); // Chamada inicial
   </script>
 </body>
 </html>
